@@ -12,10 +12,10 @@
 
 #重写日志
 
-`#开启冲写日志，并设定日志位置及记录级别notice
-rewrite_log on;
-error_log /home/weblogs/nginx_rewrite.log notice;
-`
+	#开启冲写日志，并设定日志位置及记录级别notice
+	rewrite_log on;
+	error_log /home/weblogs/nginx_rewrite.log notice;
+
 #正则匹配
 
 * ～大小写敏感匹配
