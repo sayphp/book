@@ -33,35 +33,25 @@
 
 #全局变量
 
-| 变量 | 版本 | 说明 |
-| --- | --- | --- |
-| $args | 1.0.8 | 请求中的参数|
-| $binary_remote_addr | 1.0.8 | 远程地址的二进制表示 |
-| $body_bytes_sents | 1.0.8 | 已发送的消息体字节数 |
-| $content_length | 1.0.8 | HTTP请求信息里的“Content-Type” |
-| $document_root | 1.0.8 | 远程地址的二进制表示 |
-| $document_uri | 1.0.8 | 与$uri相同 |
-| $host | 1.0.8 | 请求信息中的“host”，如果请求中没有host行，则等于设置的服务器名 |
-| $hostname | 1.0.8 |  |
-| $http_cookie | 1.0.8 | cookie信息 |
-| $http_post | 1.0.8 |  |
-| $http_referer | 1.0.8 | 引用地址 |
-| $http_user_agent | 1.0.8 | 客户端代理信息 |
-| $http_via | 1.0.8 | 最后一个访问服务器的IP地址 |
-| $http_x_forwarded_for | 1.0.8 | 相当于网络访问路径 |
-| $is_args | 1.0.8 |  |
-| $limit_rate | 1.0.8 | 对连接速率的限制 |
-| $nginx_version | 1.0.8 |  |
-| $pid | 1.0.8 |  |
-| $query_string | 1.0.8 | 与$args相同 |
-| $realpath_root | 1.0.8 |  |
-| $pid | 1.0.8 |  |
-| $pid | 1.0.8 |  |
-| $pid | 1.0.8 |  |
-| $pid | 1.0.8 |  |
-| $pid | 1.0.8 |  |
-| $pid | 1.0.8 |  |
-| $pid | 1.0.8 |  |
-| $pid | 1.0.8 |  |
-| $pid | 1.0.8 |  |
-| $pid | 1.0.8 |  |
+ | 变量 | 版本 | 说明 |
+ | --- | --- | --- |
+ | $args | 1.0.8 | 请求中的参数|
+ | $binary_remote_addr | 1.0.8 | 远程地址的二进制表示 |
+ | $body_bytes_sents | 1.0.8 | 已发送的消息体字节数 |
+ | $content_length | 1.0.8 | HTTP请求信息里的“Content-Type” |
+ | $document_root | 1.0.8 | 远程地址的二进制表示 |
+ | $document_uri | 1.0.8 | 与$uri相同 |
+ | $host | 1.0.8 | 请求信息中的“host”，如果请求中没有host行，则等于设置的服务器名 |
+ | $hostname | 1.0.8 |  |
+ | $http_cookie | 1.0.8 | cookie信息 |
+ | $http_post | 1.0.8 |  |
+ | $http_referer | 1.0.8 | 引用地址 |
+ | $http_user_agent | 1.0.8 | 客户端代理信息 |
+ | $http_via | 1.0.8 | 最后一个访问服务器的IP地址 |
+ | $http_x_forwarded_for | 1.0.8 | 相当于网络访问路径 |
+ | $is_args | 1.0.8 |  |
+ | $limit_rate | 1.0.8 | 对连接速率的限制 |
+ | $nginx_version | 1.0.8 |  |
+ | $pid | 1.0.8 |  |
+ | $query_string | 1.0.8 | 与$args相同 |
+ | $realpath_root | 1.0.8 |  |
