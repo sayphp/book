@@ -131,7 +131,7 @@ PS:
 
 以测试和探索为目的,不过分考虑兼容性的情况下,可以直接通过ios或者MacOS直接使用html5标签载入m3u8来验证你的文档是否正确
 `
-<audio type="application/vnd.apple.mpegurl" src="http://m3u8.s.cn/demo.m3u8" controls></audio>
+&gt;audio type="application/vnd.apple.mpegurl" src="http://m3u8.s.cn/demo.m3u8" controls&lt;&gt;/audio&lt;
 `
 ###m3u8文件
 
