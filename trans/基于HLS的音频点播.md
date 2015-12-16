@@ -129,10 +129,12 @@ PS:
 
 ####在苹果熊的safari上,html5的audiio标签和video标签是支持m3u8的.
 
-以测试和探索为目的,不过分考虑兼容性的情况下,可以直接通过ios或者MacOS直接使用html5标签载入m3u8来验证你的文档是否正确
+以测试和探索为目的,不过分考虑兼容性的情况下,可以直接通过iOS或者MacOS直接使用html5的标签载入m3u8来验证你的文档是否正确
+
 `
 	<audio type="application/vnd.apple.mpegurl" src="http://m3u8.s.cn/demo.m3u8" controls></audio>
 `
+
 ###m3u8文件
 
 m3u8是一个索引文件,但是他很强大,具备各种各样的功能,而很多范例给出的都是视频文件的案例,还有递增编号等等,会让人产生混乱.
@@ -156,9 +158,11 @@ m3u8是一个索引文件,但是他很强大,具备各种各样的功能,而很�
 ###ffmpeg的编译
 
 因为是在ubuntu下,所以只需
+
 `
-apt-get install ffmpeg
+    apt-get install ffmpeg
 `
+
 就可以完成安装,但是之所以需要单独说一下,是因为在实际开发过程中需要编译.
 
 apt提供的软件包中不包括aac,而hls支持的视频内容为h264,音频内容为aac,所以,想要正常转码mp3到aac格式,需要编译安装ffmpeg,并且保证enable了aac
