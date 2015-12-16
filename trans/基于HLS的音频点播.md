@@ -131,7 +131,7 @@ PS:
 
 以测试和探索为目的,不过分考虑兼容性的情况下,可以直接通过ios或者MacOS直接使用html5标签载入m3u8来验证你的文档是否正确
 `
-&gt;audio type="application/vnd.apple.mpegurl" src="http://m3u8.s.cn/demo.m3u8" controls&lt;&gt;/audio&lt;
+\<audio type="application/vnd.apple.mpegurl" src="http://m3u8.s.cn/demo.m3u8" controls\>&gt;/audio&lt;
 `
 ###m3u8文件
 
@@ -140,15 +140,15 @@ m3u8是一个索引文件,但是他很强大,具备各种各样的功能,而很�
 而其实我们要做的功能暂时只需要一个很轻型,很简单m3u8文档
 
 `
-#EXTM3U//m3u8标头,必需
-#EXT-X-TARGETDURATION:10//每个切片的长度(秒数)
-#EXTINF:10,//当下这个片的大小
+\#EXTM3U//m3u8标头,必需
+\#EXT-X-TARGETDURATION:10//每个切片的长度(秒数)
+\#EXTINF:10,//当下这个片的大小
 http://m3u8.s.cn/data/1.ts//该片的ts文件uri
-#EXTINF:10,
+\#EXTINF:10,
 http://m3u8.s.cn/data/2.ts
-#EXTINF:10,
+\#EXTINF:10,
 http://m3u8.s.cn/data/3.ts
-#EXT-X-ENDLIST//列表结束标签,必需
+\#EXT-X-ENDLIST//列表结束标签,必需
 `
 
 通过这个文档我们就可以很轻松构造一个播放列表了
