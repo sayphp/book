@@ -141,7 +141,7 @@ m3u8是一个索引文件,但是他很强大,具备各种各样的功能,而很�
 
 而其实我们要做的功能暂时只需要一个很轻型,很简单m3u8文档
 
-`
+
 	#EXTM3U//m3u8标头,必需
 
 	#EXT-X-TARGETDURATION:10//每个切片的长度(秒数)
@@ -160,7 +160,7 @@ m3u8是一个索引文件,但是他很强大,具备各种各样的功能,而很�
 
 	#EXT-X-ENDLIST//列表结束标签,必需
 
-`
+
 
 通过这个文档我们就可以很轻松构造一个播放列表了
 
@@ -195,7 +195,7 @@ gcc -Wall -g m3u8-segmenter.c -o segmenter -lavformat -lavcodec -lavutil
 
 基本工具搭建完成后,我们需要做的事情是按照设计的步骤完成转码,分片,生成m3u8这个步骤
 
-`
+
 	//*进入存放demo音频文件的目录
 	
 	cd /say/data
@@ -217,7 +217,6 @@ gcc -Wall -g m3u8-segmenter.c -o segmenter -lavformat -lavcodec -lavutil
 	//-m 生成的索引文件
 	
 	//-u 索引文件url前缀
-`
 
 ##收尾
 
