@@ -188,15 +188,25 @@ gcc -Wall -g m3u8-segmenter.c -o segmenter -lavformat -lavcodec -lavutil
 
 `
 	//*进入存放demo音频文件的目录
+	
 	cd /say/data
+	
 	//*使用ffmpeg转码(操作文档详细可以man),生成ts文件
+	
 	ffmpeg -i demo.mp3 -acodec copy -vcodec libx264 demo.ts
+	
 	//*使用m3u8-segmenter进行分片并生成m3u8索引文件
+	
 	/say/m3u8-segmenter/segmenter -i demo.ts -d 10 -p demo -m demo.m3u8 -u http://m3u8.s.cn/data/
+	
 	//-i 输入文件
+	
 	//-d 切片时间(秒)
+	
 	//-p 切片文件前缀
+	
 	//-m 生成的索引文件
+	
 	//-u 索引文件url前缀
 `
 
