@@ -143,14 +143,23 @@ m3u8是一个索引文件,但是他很强大,具备各种各样的功能,而很�
 
 `
 	#EXTM3U//m3u8标头,必需
+
 	#EXT-X-TARGETDURATION:10//每个切片的长度(秒数)
+
 	#EXTINF:10,//当下这个片的大小
+
 	http://m3u8.s.cn/data/1.ts//该片的ts文件uri
+
 	#EXTINF:10,
+
 	http://m3u8.s.cn/data/2.ts
+
 	#EXTINF:10,
+
 	http://m3u8.s.cn/data/3.ts
+
 	#EXT-X-ENDLIST//列表结束标签,必需
+
 `
 
 通过这个文档我们就可以很轻松构造一个播放列表了
