@@ -15,7 +15,9 @@
 标准的SQL里面我们常说的增删改查也就是insert、delete、update、select语句。
 
 `
-	insert into `table` (`a`, `b`, `c`) values ("a", "b", "c");#最标准的插入语句
+
+	insert into table (a, b, c) values ("a", "b", "c");#最标准的插入语句
+
 `
 
 当然，更新，我们可以理解为先删除，再插入。
@@ -23,11 +25,13 @@
 不过，写法可能就变成了
 
 `
+    
 	#先删再加
-	delete from `table` where `a` = "a";
-	insert into `table` (`a`, `b`, `c`) values ("a", "b", "c");
+	delete from table where a = "a";
+	insert into table (a, b, c) values ("a", "b", "c");
 	#更新
-	update `table` set `b` = "b", `c` = "c" where `a` = "a";
+	update table set b = "b", c = "c" where a = "a";
+    
 `
 
 不过,无论怎么操作，之前会select一次信息,然后再写入。
