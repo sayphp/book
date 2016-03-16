@@ -11,6 +11,10 @@
 	git commit -m "加点注释什么的"//提交
 	git push//把代码推送到远程服务器上面去
 	git pull//从远程服务器拖取最新的代码
+
+##Git获取远程的分支
+	
+	git checkout -b local-branch origin/remote_branch//这样就可以获取到最新的远程分支，和小伙伴们一期开发了
 	
 ##Git误删问题
 	
