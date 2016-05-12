@@ -41,14 +41,30 @@ PHP扩展开发中，无论是面向对象还是面向过程，都会牵扯到fu
 
 ##|
 
+执勤的参数都是必须得，之后的参数都是费必需的
+
 ##！
+
+如果接收一个PHP里的null变量，则直接转成C里的NULL，而不是zval，这样会节省cpu和内存开销
 
 ##/
 
-#zend_get_arguments()
+如果传递过来的变量与别的变脸公用一个zval，而且不是引用，则强行分离
 
 #可变参数
 
+##zend_get_arguments()
+
+接收的是zval *
+
+##zend_get_arguments_ex()
+
+接收的是zval ** 
+
 ##zend_get_parameter_array_ex()
 
+接收的是zval ***
+
 ##zend_get_parameter_array()
+
+需要ZEND_NUM_ARGS()作为参数
