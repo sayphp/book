@@ -32,3 +32,8 @@
 
 	//二进制执行文件,生成可执行的文件
 	gcc -c test.s -o test.o
+
+## 反编译二进制文件到汇编
+	
+	objdump -d test.o	
+	
