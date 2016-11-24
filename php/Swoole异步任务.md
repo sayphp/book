@@ -17,29 +17,29 @@
 
 这里在实际使用过程中，如果没有针对性的进行处理，会被坑。
 
-`    PHP Warning:  swoole_server::task(): The method can only be used in the worker process.`
+	PHP Warning:  swoole_server::task(): The method can only be used in the worker process.
 
 造成这个错误的原因，就在于WorkerStart的回调方法中，没有区分是worker还是taskworker；而taskworker本身不能投递任务。
 
 翻了一下资料，在群友的帮助下，找到了swoole_server::$taskworker。通过返回值可以确定当前的worker到底是不是处理任务的。
   
-`	
-    $serv = new swoole_server('127.0.0.1', '9053');
-    $serv->set(array(
-        'worker_num' => 1,
-        'task_worker_num' => 4,
-        'daemonize' => 1,
-        'max_request' => 1000,
-        'dispatch_mode' => 2,
-        'debug_mode'=> 1,
-    ));
-    $serv->on('WorkerStart', 'start');//worker启动时触发回调，worker或taskworker都会触发
-    $serv->on('Connect', 'conn');//有外部链接建立时触发
-    $serv->on('Receive', 'receive');//回复时触发
-    $serv->on('Close', 'close');//关闭连接时触发
-    $serv->on('Task', 'task');//接收到投递任务时触发
-    $serv->on('Finish', 'finish');//完成任务时触发
-    $serv->start();//启动服务
+    
+	$serv = new swoole_server('127.0.0.1', '9053');
+	$serv->set(array(
+	'worker_num' => 1,
+	'task_worker_num' => 4,
+	'daemonize' => 1,
+	'max_request' => 1000,
+	'dispatch_mode' => 2,
+	'debug_mode'=> 1,
+	));
+	$serv->on('WorkerStart', 'start');//worker启动时触发回调，worker或taskworker都会触发
+	$serv->on('Connect', 'conn');//有外部链接建立时触发
+	$serv->on('Receive', 'receive');//回复时触发
+	$serv->on('Close', 'close');//关闭连接时触发
+	$serv->on('Task', 'task');//接收到投递任务时触发
+	$serv->on('Finish', 'finish');//完成任务时触发
+	$serv->start();//启动服务
 
 	function start($serv, $worker_id){
 		if($serv->taskworker){
@@ -54,4 +54,4 @@
 		$serv->finish('处理成功');//完成
 	}
 	//*其他代码省略
-	`
+	
