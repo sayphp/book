@@ -26,12 +26,12 @@
     
 	$serv = new swoole_server('127.0.0.1', '9053');
 	$serv->set(array(
-	'worker_num' => 1,
-	'task_worker_num' => 4,
-	'daemonize' => 1,
-	'max_request' => 1000,
-	'dispatch_mode' => 2,
-	'debug_mode'=> 1,
+		'worker_num' => 1,
+		'task_worker_num' => 4,
+		'daemonize' => 1,
+		'max_request' => 1000,
+		'dispatch_mode' => 2,
+		'debug_mode'=> 1,
 	));
 	$serv->on('WorkerStart', 'start');//worker启动时触发回调，worker或taskworker都会触发
 	$serv->on('Connect', 'conn');//有外部链接建立时触发
