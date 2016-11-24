@@ -23,7 +23,7 @@
 
 翻了一下资料，在群友的帮助下，找到了swoole_server::$taskworker。通过返回值可以确定当前的worker到底是不是处理任务的。
   
-`
+`	
     $serv = new swoole_server('127.0.0.1', '9053');
     $serv->set(array(
         'worker_num' => 1,
@@ -54,4 +54,4 @@
 		$serv->finish('处理成功');//完成
 	}
 	//*其他代码省略
-`
+	`
