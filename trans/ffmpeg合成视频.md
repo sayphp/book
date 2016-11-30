@@ -27,3 +27,7 @@ ffmpeg -i demo.mp4 -ss 00:30:20 -t 00:00:01 -vcodec copy blank.mp4
 ##拼接视频
 
 ffmpeg -i concat:"step1.flv|step2.flv" -c copy out.mp4
+
+##把图片做成视频
+
+ffmpeg -f image2 -i demo.jpg -r 0.001 out.mp4//-r是1秒播放多少帧
