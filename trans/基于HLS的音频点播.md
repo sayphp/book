@@ -186,9 +186,24 @@ m3u8-segmenter本身是从git上面直接clone下来,然后按照一些帖子去
 
 经历各种折腾,终于发现了,只需要通过gcc编译 m3u8-segmenter.c文件即可
 
-`
-gcc -Wall -g m3u8-segmenter.c -o segmenter -lavformat -lavcodec -lavutil
-`
+	
+	gcc -Wall -g m3u8-segmenter.c -o segmenter -lavformat -lavcodec -lavutil
+	
+
+然而，使用这个命令也会造成一系列错误，缺少avformat等的包的问题就不细说，自己补包即可。
+
+而最大的问题在于其中一个编译失败：
+	
+	 error: ‘CODEC_ID_MP3’ undeclared (first use in this function)……
+	
+这个问题需要修改m3u8-segmenter.c的源代码。	
+
+CODEC_ID_MP3修改为AV_CODEC_ID_MP3//89行
+
+解决问题的修复地址:
+
+https://github.com/johnf/m3u8-segmenter/pull/39/commits/b349ae9748bec61cb15d8853edcd671039d36bc1
+
 ###实际执行过程中的注意事项
 
 工欲善其事,必先利其器
