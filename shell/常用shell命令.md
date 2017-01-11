@@ -6,6 +6,10 @@
 
 	
 	find /var/www/php/ -name "*.php" | xargs grep "keyword"
+	
 
+##ubuntu下面查询某个软件的安装信息
+	
+	dpkg -L [softname]
 
 
