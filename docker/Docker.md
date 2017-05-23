@@ -22,3 +22,19 @@ Docker提供了各种容器管理工具(如分发、版本、移植等)让用户
 5. Docker在隔离性上采用的是安全隔离而不是虚拟机的完全隔离（内存、磁盘）
 
 
+
+#安装
+
+##Docker官网
+
+http://www.docker.com
+
+##ubuntu获取地址：
+
+http://www.docker.com/docker-ubuntu
+
+##ubuntu
+
+    
+    sudo apt-get install docker.io
+
