@@ -39,3 +39,26 @@
 #结语
 
 思考一番，最终还是决定把这个多版本编译的坑爹经历记录下来，说不定，在世界的另一个角落，也会有遇到这个问题的战友呢：）
+
+#补充
+
+##Unable to find the wrapper "https"
+
+缺少openssl库,php没法愉快的发送https请求了,使用apt-get打包开发版即可解决
+
+##make: *** [sapi/cli/php] Error 1
+
+    /usr/bin/ld: ext/ldap/.libs/ldap.o: undefined reference to symbol 'ber_scanf'
+
+    /usr/bin/ld: note: 'ber_scanf' is defined in DSO /lib64/liblber-2.4.so.2 so try adding it to the linker command line /lib64/liblber-2.4.so.2: could not read symbols: Invalid operation 
+
+    collect2: ld returned 1 exit status 
+    
+    make: *** [sapi/cli/php] Error 1 
+
+
+这个问题有两部分，
+
+第一部类似其他的找不到库，直接打包liblber-dev即可，但同时由于ubuntu将库存放在x86_64的目录下，需要使用ln做一个链接到/usr/lib下面去
+
+再次编译，会出现另外一个问题，解决方案是打开MakeFile,找到EXTRA_LIBS,加上'-llber'即可。
