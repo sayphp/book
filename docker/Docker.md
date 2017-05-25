@@ -37,4 +37,75 @@ http://www.docker.com/docker-ubuntu
 
     
     sudo apt-get install docker.io
+    
+#常用命令
+
+##host
+    
+    //默认
+    hub.docker.com
+    
+    //国内
+    dl.dockerpool:5000/
+
+##测试
+    
+    //hello world 测试
+    sudo docker run hello-world
+
+##镜像
+
+    //搜索镜像
+    sudo docker search ubuntu
+    
+    //下载镜像
+    sudo docker pull ubuntu
+    
+    //删除镜像
+    sudo docker rmi ubuntu//标签模式
+    sudo docker rmi fe7c4bd//镜像ID模式
+    
+    //查看镜像信息
+    sudo docker images
+    
+    //添加标签
+    sudo  docker tag hub.sayphp.cn:5000/ubuntu:latest ubuntu:latest
+    
+    //镜像详情
+    sudo docker inspect fe7c4bd
+    
+    //创建镜像
+    sudo  docker commit -m "添加一个新的文件" -a "TEST" fe7c4bd test abdfg123adasdaeasd
+    
+    //上传镜像
+    sudo docker push sayphp/lnmp:latest
+
+##容器
+    
+    //创建容器
+    sudo docker create -it ubuntu:latest adasd131huida12
+    
+    //启动容器
+    sudo docker start adasd131huida12
+    
+    //重启容器
+    sudo docker restart adasd131huida12
+    
+    //终止容器
+    sudo docker stop adasd131huida12
+    
+    //容器状态
+    sudo docker ps -a
+    
+    //运行容器
+    sudo docker run -it ubuntu /bin/bash
+    
+    //删除容器
+    sudo docker rm adasd131huida12
+    
+    //容器日志
+    sudo docker logs adasd131huida12
+    
+    //进入容器
+    sudo docker exec -it adasd131huida12 /bin/bash
 
