@@ -39,3 +39,9 @@ MySQL操作
 	describe table;
 	desc table;
 	show columns from table;
+	
+MySQL BINGLOG
+    
+    mysqlbinlog mysql-bin.000001 > test01.log//MySQL binlog二进制转文本，文件普遍偏大，VIM打开很吃力
+    
+    
