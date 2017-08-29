@@ -36,27 +36,23 @@ ubuntu或centos下的apt-get或yum的库的名字有细微区别,自己蛋疼,�
 
 http部分,我们要加载lua的模块路径,分为两种c的和lua的,我看了下自己的OpenResty,只有.C,但是都需要配置一下,说不定啥时候就要用到了呢
 
-
-`
-	//;分割多个模块路径,;;表示默认搜索路径(想知道我的nginx默认路径,不告诉-.-)
-    lua_package_path "/usr/local/ngx_openresty/lualib/?.lua;;";//lua模块
-	lua_package_cpath "/usr/local/ngx_openresty/lualib/?.c;;";//C模块
-`
-
+```nginx
+//;分割多个模块路径,;;表示默认搜索路径(想知道我的nginx默认路径,不告诉-.-)
+lua_package_path "/usr/local/ngx_openresty/lualib/?.lua;;";//lua模块
+lua_package_cpath "/usr/local/ngx_openresty/lualib/?.c;;";//C模块
+```
 然后测试一下是否配置成功
 
-`
-	nginx -t
-`
-
+```shell
+nginx -t
+```
 成功之后我们就可以开始lua变成之旅了,但是呢,我们总不能把代码写到配置文件里面吧,感觉怪怪的.所以呢,我么要陪只一下
 
-`
-	location / {
-		default_type 'text/html;charset=utf-8';//我是utf8党,不要问我为什么
-		lua_code_cache off;//如果不关掉缓存的话,只能不停的restart服务器了,关闭缓存之后,哇哦,lua变身php,可以直接开发内容了
-		content_by_lua_file /var/www/lua/test.lua;//我的开发环境lua测试文件
-	}
-`
-
+```nginx
+location / {
+	default_type 'text/html;charset=utf-8';//我是utf8党,不要问我为什么
+	lua_code_cache off;//如果不关掉缓存的话,只能不停的restart服务器了,关闭缓存之后,哇哦,lua变身php,可以直接开发内容了
+	content_by_lua_file /var/www/lua/test.lua;//我的开发环境lua测试文件
+}
+```
 然后我们就可以在/var/www/lua/test.lua里面编写一些hello world之类的基础输出了.

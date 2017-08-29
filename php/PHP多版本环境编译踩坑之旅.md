@@ -48,13 +48,12 @@
 
 ##make: *** [sapi/cli/php] Error 1
 
-    /usr/bin/ld: ext/ldap/.libs/ldap.o: undefined reference to symbol 'ber_scanf'
-
-    /usr/bin/ld: note: 'ber_scanf' is defined in DSO /lib64/liblber-2.4.so.2 so try adding it to the linker command line /lib64/liblber-2.4.so.2: could not read symbols: Invalid operation 
-
-    collect2: ld returned 1 exit status 
-    
-    make: *** [sapi/cli/php] Error 1 
+```shell
+/usr/bin/ld: ext/ldap/.libs/ldap.o: undefined reference to symbol 'ber_scanf'
+/usr/bin/ld: note: 'ber_scanf' is defined in DSO /lib64/liblber-2.4.so.2 so try adding it to the linker command line /lib64/liblber-2.4.so.2: could not read symbols: Invalid operation
+collect2: ld returned 1 exit status
+make: *** [sapi/cli/php] Error 1 
+```
 
 
 这个问题有两部分，

@@ -4,12 +4,16 @@
 
 ##查询某个目录下，某个关键词所在的文件
 
-	
-	find /var/www/php/ -name "*.php" | xargs grep "keyword"
-	
+
+```shell
+find /var/www/php/ -name "*.php" | xargs grep "keyword"
+```
+​	
 
 ##ubuntu下面查询某个软件的安装信息
-	
-	dpkg -L [softname]
+
+```shell
+dpkg -L [softname]
+```
 
 

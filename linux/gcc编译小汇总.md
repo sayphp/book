@@ -24,16 +24,20 @@
 
 ## gcc编译.c文件,生成汇编文件
 
-	//中间文件,相当于链接之后,合并多有代码的C程序文件(自己写的代码和库的代码)
-	gcc -E test.c -o test.i
-	
-	//汇编文件,生成该程序的汇编语言版本
-	gcc -S test.i -o test.s
+```shell
+//中间文件,相当于链接之后,合并多有代码的C程序文件(自己写的代码和库的代码)
+gcc -E test.c -o test.i
 
-	//二进制执行文件,生成可执行的文件
-	gcc -c test.s -o test.o
+//汇编文件,生成该程序的汇编语言版本
+gcc -S test.i -o test.s
+
+//二进制执行文件,生成可执行的文件
+gcc -c test.s -o test.o
+```
 
 ## 反编译二进制文件到汇编
-	
-	objdump -d test.o	
-	
+
+```shell
+objdump -d test.o	
+```
+​	

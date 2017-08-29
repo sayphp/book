@@ -132,7 +132,9 @@ PS:
 以测试和探索为目的,不过分考虑兼容性的情况下,可以直接通过iOS或者MacOS直接使用html5的标签载入m3u8来验证你的文档是否正确
 
 `
-	<audio type="application/vnd.apple.mpegurl" src="http://m3u8.s.cn/demo.m3u8" controls></audio>
+```html
+<audio type="application/vnd.apple.mpegurl" src="http://m3u8.s.cn/demo.m3u8" controls></audio>
+```
 `
 
 ###m3u8文件
@@ -142,24 +144,17 @@ m3u8是一个索引文件,但是他很强大,具备各种各样的功能,而很�
 而其实我们要做的功能暂时只需要一个很轻型,很简单m3u8文档
 
 
-	#EXTM3U//m3u8标头,必需
-
-	#EXT-X-TARGETDURATION:10//每个切片的长度(秒数)
-
-	#EXTINF:10,//当下这个片的大小
-
-	http://m3u8.s.cn/data/1.ts//该片的ts文件uri
-
-	#EXTINF:10,
-
-	http://m3u8.s.cn/data/2.ts
-
-	#EXTINF:10,
-
-	http://m3u8.s.cn/data/3.ts
-
-	#EXT-X-ENDLIST//列表结束标签,必需
-
+```m3u8
+#EXTM3U//m3u8标头,必需
+#EXT-X-TARGETDURATION:10//每个切片的长度(秒数)
+#EXTINF:10,//当下这个片的大小
+http://m3u8.s.cn/data/1.ts//该片的ts文件uri
+#EXTINF:10,
+http://m3u8.s.cn/data/2.ts
+#EXTINF:10,
+http://m3u8.s.cn/data/3.ts
+#EXT-X-ENDLIST//列表结束标签,必需
+```
 
 
 通过这个文档我们就可以很轻松构造一个播放列表了
@@ -168,9 +163,10 @@ m3u8是一个索引文件,但是他很强大,具备各种各样的功能,而很�
 
 因为是在ubuntu下,所以只需
 
-`
-    apt-get install ffmpeg
-`
+
+```shell
+apt-get install ffmpeg
+```
 
 就可以完成安装,但是之所以需要单独说一下,是因为在实际开发过程中需要编译.
 
@@ -186,16 +182,20 @@ m3u8-segmenter本身是从git上面直接clone下来,然后按照一些帖子去
 
 经历各种折腾,终于发现了,只需要通过gcc编译 m3u8-segmenter.c文件即可
 
-	
-	gcc -Wall -g m3u8-segmenter.c -o segmenter -lavformat -lavcodec -lavutil
-	
+
+```shell
+gcc -Wall -g m3u8-segmenter.c -o segmenter -lavformat -lavcodec -lavutil
+```
+​	
 
 然而，使用这个命令也会造成一系列错误，缺少avformat等的包的问题就不细说，自己补包即可。
 
 而最大的问题在于其中一个编译失败：
-	
-	 error: ‘CODEC_ID_MP3’ undeclared (first use in this function)……
-	
+​	
+```shell
+ error: ‘CODEC_ID_MP3’ undeclared (first use in this function)……
+```
+
 这个问题需要修改m3u8-segmenter.c的源代码。	
 
 CODEC_ID_MP3修改为AV_CODEC_ID_MP3//89行
@@ -211,27 +211,19 @@ https://github.com/johnf/m3u8-segmenter/pull/39/commits/b349ae9748bec61cb15d8853
 基本工具搭建完成后,我们需要做的事情是按照设计的步骤完成转码,分片,生成m3u8这个步骤
 
 
-	//*进入存放demo音频文件的目录
-	
-	cd /say/data
-	
-	//*使用ffmpeg转码(操作文档详细可以man),生成ts文件
-	
-	ffmpeg -i demo.mp3 -acodec copy -vcodec libx264 demo.ts
-	
-	//*使用m3u8-segmenter进行分片并生成m3u8索引文件
-	
-	/say/m3u8-segmenter/segmenter -i demo.ts -d 10 -p demo -m demo.m3u8 -u http://m3u8.s.cn/data/
-	
-	//-i 输入文件
-	
-	//-d 切片时间(秒)
-	
-	//-p 切片文件前缀
-	
-	//-m 生成的索引文件
-	
-	//-u 索引文件url前缀
+```shell
+#进入存放demo音频文件的目录
+cd /say/data
+#使用ffmpeg转码(操作文档详细可以man),生成ts文件
+ffmpeg -i demo.mp3 -acodec copy -vcodec libx264 demo.ts
+#使用m3u8-segmenter进行分片并生成m3u8索引文件
+/say/m3u8-segmenter/segmenter -i demo.ts -d 10 -p demo -m demo.m3u8 -u http://m3u8.s.cn/data/
+#-i 输入文件
+#-d 切片时间(秒)
+#-p 切片文件前缀
+#-m 生成的索引文件
+#-u 索引文件url前缀
+```
 
 ##收尾
 
