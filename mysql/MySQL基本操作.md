@@ -29,7 +29,7 @@ Ubuntu
 	sudo service mysql restart//重启
 
 MySQL操作
-	
+	                                                                                                           
 	mysql -u root -p//登录MySQL,提示输入Password
 	status;//查看服务器状态
 	show databases;//查询数据库列表
