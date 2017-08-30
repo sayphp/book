@@ -10,7 +10,7 @@
 
 1. 获取PHP源码（github获取）
 
-2. 准备编译环境（linux环境，clang、autoconf、flex等的安装）
+2. 准备编译环境（linux环境，clang、autoconf、lex、bison等的安装）
 
 3. 编译（autoconf ./buildconf ./configure make makeinstall）
 
@@ -153,13 +153,90 @@ Zend引擎是PHP实现的核心，提供了语言实现上的基础设施。
 * fpm
 * cli
 
-# 扩展开发及实践
+### 1.2.3 PHP脚本的执行
 
-# Better Explain
+脚本执行有Zend引擎来完成。
 
-# 参考
+由**解释器**执行这些源码，实际上还是会经过编译环节，只不过他们一般会在运行的时候实时进行编译。
 
-[1.]: https://www.php-internals.com/book/?p=chapt02/02-02-03-fastcgi "FastCGI"
-[2.]: https://www.php-internals.com/book/?p=chapt02/02-02-02-embedding-php "嵌入式"
-[3.]: https://www.php-internals.com/book/?p=chapt02/02-02-01-apache-php-module "apache2handler"
+#### 词法分析和语言法分析
+
+#### opcode
+
+#### opcode处理函数查找
+
+## 1.3 变量及数据类型
+
+### 1.3.1 变量的结构和类型
+
+### 1.3.2 常量
+
+### 1.3.3 预定义变量
+
+### 1.3.4 静态变量
+
+### 1.3.5 类型提示的实现
+
+### 1.3.6 变量的生命周期
+
+### 1.3.7 数据类型转换
+
+## 1.4 函数的实现
+
+## 1.5 类和面向对象
+
+## 1.6 内存管理
+
+## 1.7 Zend虚拟机
+
+## 1.8 线程安全
+
+## 1.9 错误和异常处理
+
+## 1.10 输出缓冲
+
+
+
+> **注意**
+>
+> TIPI的后半部分基本为空，只留下了一些章节标题，暂时先把前10章的内容完全阅读，然后结合《Extending and Embedding PHP》一书及walu（现在好像叫寸谋了）的blog来补全整个PHP的内容吧。而且因为本身是PHP5的内容，现在PHP已经到了7.2的版本了。在自己大致吃透这些内容后，不排除自己做一个PHP7的cookbook的可能性
+
+# 2 扩展开发及实践
+
+## 2.11 扩展开发
+
+## 2.12 文件和流
+
+## 2.13 网络编程
+
+## 2.14 配置文件
+
+## 2.15 开发实例
+
+### 2.15.1 opcode缓存扩展
+
+### 2.15.2 性能监控及优化扩展
+
+### 2.15.3 扩展PHP语法，为PHP增加语法特性
+
+
+
+# 3 Better Explain
+
+## 3.16 PHP与亚呢性的实现
+
+## 3.17 PHP性功能
+
+## 3.18 CPHP以外：PHP编译器
+
+## 3.19 PHP个版本中的那些变动及优化
+
+## 3.20 怎样系列（Guides：how to *）
+
+# 4 深入阅读
+
+[1]: https://www.php-internals.com/book/?p=chapt02/02-02-03-fastcgi "FastCGI"
+[2]: https://www.php-internals.com/book/?p=chapt02/02-02-02-embedding-php "嵌入式"
+[3]: https://www.php-internals.com/book/?p=chapt02/02-02-01-apache-php-module "apache2handler"
+[4]: http://pecl.php.net/package/vld "Opcode"
 
