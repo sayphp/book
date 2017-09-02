@@ -10,7 +10,7 @@
 
 1. 获取PHP源码（github获取）
 
-2. 准备编译环境（linux环境，clang、autoconf、lex、bison等的安装）
+2. 准备编译环境（linux环境，clang、autoconf、flex、lex、yacc、bison等的安装）
 
 3. 编译（autoconf ./buildconf ./configure make makeinstall）
 
@@ -161,7 +161,54 @@ Zend引擎是PHP实现的核心，提供了语言实现上的基础设施。
 
 #### 词法分析和语言法分析
 
+编程语言的编译器（compiler）或解释器（interpreter）一版包括两大部分：
+
+* 读取源程序，并处理语言结构
+* 处理与眼界够并生成目标程序
+
+
+##### Lex和Yacc的作用(或者flex->re2c/bison,PHP用的这个,当年还被坑过)
+
+1. 将代码切分为一个个的标记(token)
+2. 处理程序的层级结构
+
+##### Lex/Flex
+
+Lex读取词法规则文件，生成词法分析器。
+
+```flex
+定义段
+%%
+规则段
+%%
+用户代码段
+```
+
+#####Yacc/Bison	
+
 #### opcode
+
+opcode是计算机指令中的一部分，用户指定要执行的操作，指令的格式和规范又出力气的指令规范指定。
+
+##### PHP的opcode
+
+PHP的opcode是Zend虚拟机中的指令
+
+```c
+struct _zend_op{
+    opcode_handler_t handler;//执行该opcode时调用的处理函数
+  	znode result;
+  	znode op1;
+  	znode op2;
+  	ulong exnteded_value;
+  	unit lineno;
+  	zend_uchar opcode;//opcode代码
+}
+```
+
+
+
+
 
 #### opcode处理函数查找
 
@@ -188,6 +235,45 @@ Zend引擎是PHP实现的核心，提供了语言实现上的基础设施。
 ## 1.6 内存管理
 
 ## 1.7 Zend虚拟机
+
+### 1.7.1 Zend虚拟机概述
+
+Zend虚拟机在本质上是抽象的计算机。在某终较底层的语言上抽象出另外一种语言，有自己的指令集，有自己的内存管理体系。
+
+#### 虚拟机的类型
+
+* 基于栈的Stack Machines：操作数保存在栈上，JVM、HHVM
+* 基于累加器 的Accumulator Machines：使用累加器寄存器来报存一个操作数以及操作的结果
+* 基于通用寄存器的General-Purpose-Register Machines：操作数保存在这些没有特殊用的寄存器中，Zend VM
+
+#### Zend虚拟机核心实现代码
+
+1. PHP语法实现
+   * Zend/zend_language_scanner.l
+   * Zend/zend_language_parser.y
+2. Opcode编译
+   * Zend/zend_compile.c
+3. 执行引擎
+   * Zend/zend_vm_*
+   * Zend/zend_execute.c
+
+####Zend虚拟机体系结构
+
+- 解释层（词法分析、语法分析、编译生成中间代码）
+- 中间数据层（中间代码、PHP自带函数列表、用户自定义的函数列表、PHP自带的类、用户自定义的类）
+- 执行引擎
+
+### 1.7.2 语法的实现
+
+#### 词法解析
+
+re2c的应用，核心代码在Zend/zend_scan
+
+#### 语法分析
+
+#### 实现自己的语法
+
+
 
 ## 1.8 线程安全
 
@@ -239,4 +325,5 @@ Zend引擎是PHP实现的核心，提供了语言实现上的基础设施。
 [2]: https://www.php-internals.com/book/?p=chapt02/02-02-02-embedding-php "嵌入式"
 [3]: https://www.php-internals.com/book/?p=chapt02/02-02-01-apache-php-module "apache2handler"
 [4]: http://pecl.php.net/package/vld "Opcode"
+[5]: https://www.ibm.com/developerworks/cn/linux/sdk/lex/index.html "Yacc与Lex快速入门"
 
