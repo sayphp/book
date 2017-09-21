@@ -25,5 +25,7 @@ ffmpeg -version && echo $?
 ffmpeg -v || echo $?
 #第一个命令无论正确与否，返回状态码0或1-255
 ffmpeg -version ; echo $?
+#不输出内容，只返回状态码
+ffmpeg -version &>/dev/null ; echo $?
 ```
 
