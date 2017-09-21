@@ -16,4 +16,14 @@ find /var/www/php/ -name "*.php" | xargs grep "keyword"
 dpkg -L [softname]
 ```
 
+## 获取某个命令运行的返回状态
+
+```shell
+#第一个命令正确的时候返回0
+ffmpeg -version && echo $?
+#第一个命令错误的时候返回状态码 1-255
+ffmpeg -v || echo $?
+#第一个命令无论正确与否，返回状态码0或1-255
+ffmpeg -version ; echo $?
+```
 
