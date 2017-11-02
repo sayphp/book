@@ -18,22 +18,28 @@
         ],
         'skill' => [
             'language' => 'PHP/Java/C/Shell/SQL/Lua/HTML/CSS/JavaScript',
-            'database' => 'MySQL/Redis',
+            'database' => 'MySQL/Redis/Memcache',
             'server' => 'Nginx/Apache',
             'os' => 'Centos/Ubuntu/Windows',
             'ide' => 'Netbeans/Phpstorm/CLion/InterlliJ',
             'editor' => 'EditPlus/NotePad++/Vim',
+            'other' => [
+                'http/mqtt/websocket/rtmp',
+                'Pcntl/Shmop/Sockets/Swoole',
+                'ActiveMQ/Docker/WebGL/PhoneGap',
+                'hls/ffmpeg/mmseg/openresty',
+            ],
         ],
         'work' => [
-            '2014.3-至今' => [
+            '2014.2-至今' => [
                 'company' => '北京三好互动教育科技有限公司',
                 'job' => '技术负责人/架构师/联合创始人',
                 'desc' => '负责三好网业务设计、系统架构、程序开发、新人培训',
             ],
-            '2013.9-2014.2' => [
+            '2013.9-2014.1' => [
                 'company' => '北京普科国际有限公司',
                 'job' => '技术负责人',
-                'desc' => '负责网站开发、运维、SEO、SEM，APP开发、微信公众号开发',
+                'desc' => '负责网站开发、运维、SEO、SEM、APP开发、微信公众号开发',
             ],
             '2013.5-2013.8' => [
                 'company' => '北京指点无限有限公司',
