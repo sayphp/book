@@ -29,10 +29,9 @@ ffmpeg -version ; echo $?
 ffmpeg -version &>/dev/null ; echo $?
 ```
 
-# 查找并替换文本内容
+##查找并替换文本内容
 
 ```shell
-#
 sed -i "s/abc/def/g" demo.txt
 ```
 
