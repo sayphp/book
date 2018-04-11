@@ -33,6 +33,24 @@ error_log /home/weblogs/nginx_rewrite.log notice;
 3. redirect 返回302临时重定向，地址栏会显示跳转后的地址
 4. permanent 返回301永久重定向,地址栏会显示跳转后的地址
 
+# if语法
+
+```nginx
+location / {
+    #注意if判断的空格，缺少了会报错误
+    if ( $document_uri != '/index.php' ) {
+        #重写（内部重定向）到index.php下，并将uri作为参数传递
+        rewrite '^/(.*)$' /index.php?$1;
+        #使用try_files,达到指向效果
+        try_files $uri /index.php?$1;
+    }
+}
+```
+
+#try_files语法
+
+按顺序检查文件是否存在，返回第一个找到的文件。如果所有的文件都找不到，会进行一个内部重定向到最后一个参数。
+
 #全局变量
 
 | 变量                               |  版本   | 说明                                   |
