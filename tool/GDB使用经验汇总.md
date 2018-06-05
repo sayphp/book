@@ -15,6 +15,8 @@ php say.php
 gdb php -c core
 run say.php
 #然后只需要阅读gdb输出的核心信息就可以了-。-
+#最后，使用quit推出gdb
+quit
 ```
 
 

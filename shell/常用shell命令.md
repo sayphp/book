@@ -35,3 +35,9 @@ ffmpeg -version &>/dev/null ; echo $?
 sed -i "s/abc/def/g" demo.txt
 ```
 
+## 清空一个文件
+
+```shell
+> demo.txt
+```
+
