@@ -145,5 +145,7 @@ service iptables restart
 
 ### 1.压力测试
 
+### 2.读写分离
+
 
 
