@@ -22,6 +22,7 @@ mvn package
 ## 执行jar包
 
 ```shell
-java -cp test.jar com.say.App
+java -cp test.jar com.say.App #常规Java代码
+java -jar test.jar #springboot框架下代码执行
 ```
 

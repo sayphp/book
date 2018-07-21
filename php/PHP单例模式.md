@@ -31,7 +31,7 @@ final class db{
     }
     
     static public function get_instance(){//共有静态方法，调取唯一入口
-        if(!self::$db instanceof db) self::$db = new db();
+        if(!self::$db instanceof db) self::$db = new self();
         return self::$db;
     }
     
