@@ -41,3 +41,10 @@ sed -i "s/abc/def/g" demo.txt
 > demo.txt
 ```
 
+## 批量替换文件后缀
+
+```shell
+#将.conf后缀的文件名批量替换为.conf.bak
+rename .conf .conf.bak *.conf
+```
+
