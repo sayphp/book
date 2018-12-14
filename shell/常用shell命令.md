@@ -48,3 +48,9 @@ sed -i "s/abc/def/g" demo.txt
 rename .conf .conf.bak *.conf
 ```
 
+## 获取文件MD5
+
+```shell
+md5sum filename | cut -d ' ' -f1
+```
+
