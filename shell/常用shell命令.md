@@ -1,8 +1,8 @@
-#常用命令
+# 常用命令
 
 记录一些开发中比较常用的shell命令，不需要每次都百度。
 
-##查询某个目录下，某个关键词所在的文件
+## 查询某个目录下，某个关键词所在的文件
 
 
 ```shell
@@ -10,7 +10,7 @@ find /var/www/php/ -name "*.php" | xargs grep "keyword"
 ```
 ​	
 
-##ubuntu下面查询某个软件的安装信息
+## ubuntu下面查询某个软件的安装信息
 
 ```shell
 dpkg -L [softname]
@@ -29,7 +29,7 @@ ffmpeg -version ; echo $?
 ffmpeg -version &>/dev/null ; echo $?
 ```
 
-##查找并替换文本内容
+## 查找并替换文本内容
 
 ```shell
 sed -i "s/abc/def/g" demo.txt
@@ -52,5 +52,11 @@ rename .conf .conf.bak *.conf
 
 ```shell
 md5sum filename | cut -d ' ' -f1
+```
+
+### 批量加前缀
+
+```shell
+for f in * ; do mv -- "$f" "PRE_$f" ; done
 ```
 
