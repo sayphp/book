@@ -1,4 +1,4 @@
-#什么是Docker
+# 什么是Docker
 
 在LXC的基础上，Docker进一步优化了容器的使用体验。
 
@@ -6,14 +6,14 @@ Docker提供了各种容器管理工具(如分发、版本、移植等)让用户
 
 可以简单地将Docker容器理解为一种沙盒（Sandbox）。
 
-#Docker的优点
+# Docker的优点
 
 1. 更快速的交付和部署
 2. 更高效的资源利用
 3. 更轻松的迁移和扩展
 4. 更简单的更新管理
 
-#对比虚拟机
+# 对比虚拟机
 
 1. 更快
 2. 对系统资源需求更少
@@ -23,7 +23,7 @@ Docker提供了各种容器管理工具(如分发、版本、移植等)让用户
 
 
 
-#安装
+# 安装
 
 ##Docker官网
 
@@ -38,9 +38,9 @@ http://www.docker.com/docker-ubuntu
 
     sudo apt-get install docker.io
 
-#常用命令
+# 常用命令
 
-##host
+## host
 
 ```shell
 //默认
@@ -50,14 +50,14 @@ hub.docker.com
 dl.dockerpool:5000/
 ```
 
-##测试
+## 测试
 
 ```shell
 //hello world 测试
 sudo docker run hello-world
 ```
 
-##镜像
+## 镜像
 
 ```shell
 //搜索镜像
@@ -86,7 +86,7 @@ sudo  docker commit -m "添加一个新的文件" -a "TEST" fe7c4bd test abdfg12
 sudo docker push sayphp/lnmp:latest
 ```
 
-##容器
+## 容器
 
 ```shell
 //创建容器

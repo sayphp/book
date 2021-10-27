@@ -9,7 +9,7 @@ say::test($par);//静态方法调用
 
 我们可能都需要传入参数。
 
-#zend_parse_parameters()
+# zend_parse_parameters()
 
 这个是最基本的调用传递过来参数的函数。
 
@@ -23,7 +23,7 @@ if(zend_parse_parameter(ZEND_NUM_ARGS() TSRMLS_CC, "l", &foo) == FAILURE)
 
 通过这种调用方式，就可以把想要获取到的参数赋值给变量，事例里面是接收一个long型的参数赋值给变量foo。
 
-#type_spec
+# type_spec
 
 接收参数，需要知道参数的类型，方法中使用了"l"表示long型，对照表如下：
 
@@ -41,34 +41,34 @@ if(zend_parse_parameter(ZEND_NUM_ARGS() TSRMLS_CC, "l", &foo) == FAILURE)
 |  Z   | zval**类型                                 | zval**                  |
 |  f   | 表示函数、方法名称                                |                         |
 
-#特殊参数
+# 特殊参数
 
-##|
+## |
 
 执勤的参数都是必须得，之后的参数都是费必需的
 
-##！
+## ！
 
 如果接收一个PHP里的null变量，则直接转成C里的NULL，而不是zval，这样会节省cpu和内存开销
 
-##/
+## /
 
 如果传递过来的变量与别的变脸公用一个zval，而且不是引用，则强行分离
 
-#可变参数
+# 可变参数
 
-##zend_get_arguments()
+## zend_get_arguments()
 
 接收的是zval *
 
-##zend_get_arguments_ex()
+## zend_get_arguments_ex()
 
 接收的是zval ** 
 
-##zend_get_parameter_array_ex()
+## zend_get_parameter_array_ex()
 
 接收的是zval ***
 
-##zend_get_parameter_array()
+## zend_get_parameter_array()
 
 需要ZEND_NUM_ARGS()作为参数

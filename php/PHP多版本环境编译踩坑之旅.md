@@ -1,4 +1,4 @@
-#概述
+# 概述
 
 重装完开发机系统之后，ubuntu16.10的自带PHP版本默认为7，平时自己在github上面拉下来了PHP-SRC的源代码作为扩展开发的源码环境，同时也方便平时查阅源代码。
 
@@ -6,11 +6,11 @@
 
 开发环境是标准的lnmp，php7+phpfpm，所以php5想要使用fastcgi来进行。
 
-#问题
+# 问题
 
 然而，apt-get里面没有php5的版本，本地编译自然是最快的，所以很自然的切了个php5的分支（5.6.25）直接开始编译安装
 
-#然后
+# 然后
 
 ## 总是提示找不到一些PHP扩展的、甚至zend扩展的方法缺失
 
@@ -36,17 +36,17 @@
 
 瞬间泪流满面……
 
-#结语
+# 结语
 
 思考一番，最终还是决定把这个多版本编译的坑爹经历记录下来，说不定，在世界的另一个角落，也会有遇到这个问题的战友呢：）
 
-#补充
+# 补充
 
-##Unable to find the wrapper "https"
+## Unable to find the wrapper "https"
 
 缺少openssl库,php没法愉快的发送https请求了,使用apt-get打包开发版即可解决
 
-##make: *** [sapi/cli/php] Error 1
+## make: *** [sapi/cli/php] Error 1
 
 ```shell
 /usr/bin/ld: ext/ldap/.libs/ldap.o: undefined reference to symbol 'ber_scanf'

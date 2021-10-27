@@ -1,24 +1,24 @@
-#Nginx+Lua
+# Nginx+Lua
 
-##始于需求
+## 始于需求
 
 前不久,高可用架构微信群进行了一场OpenResty的专场分享.虽然因为工作原因错过了直播,但是通过后续的文章了解到了一些新的东西
 
 最近手头上刚好有一个首页静态化的工作,想到分站指向页面的处理,如果能够直接在nginx上处理,会是一个不错的方式,便和运维商量了一下,打算做一个nginx+lua的尝试
 
-##启动环境
+## 启动环境
 
 OpenResty是一个nginx和它的各种第三方模块的打包而成的软件平台
 
 Nginx通过加载模块的方式,可以支持lua,从而通过lua脚本进行web开发(赞美lua,最早知道他是来自于魔兽世界的插件开发)
 
-###安装依赖
+### 安装依赖
 
 安装OpenResty首先需要安装一些依赖的库,包括readline ncurses5 pcre3 ssl perl
 
 ubuntu或centos下的apt-get或yum的库的名字有细微区别,自己蛋疼,编译安装也ok,直接安装就好
 
-###安装ngx_openresty
+### 安装ngx_openresty
 
 本来想从github上下载,不过貌似失败了,老老实实的参照官网的介绍,下载tar,然后解压,make
 
@@ -28,7 +28,7 @@ ubuntu或centos下的apt-get或yum的库的名字有细微区别,自己蛋疼,�
 
 去对应目录下,会发现有一些lualib的目录,看来是安装成功了
 
-###配置开发环境
+### 配置开发环境
 
 在这里要吐槽一句,因为我之前安装过nginx所以没有注意,先通过 nginx -V查看一下自己的nginx都在入了什么模块,其他的不在乎,lua的模块一定要有,如果没有,可以选择编译安装,我比较偷懒,直接apt-get了nginx-common nginx-full
 

@@ -1,4 +1,4 @@
-#前言
+# 前言
 
 基于Swoole开发视频合成服务，服务分为两部分：
 
@@ -9,7 +9,7 @@
 
 而接受请求处理，属于二期的需求，需要提前预留可扩展，所以选择swoole_server而没有选择swoole_process。
 
-#注意
+# 注意
 
 在swoole的当前版本中（1.9.0），通过set配置task_worker_num来启动异步任务，异步任务必须要onTask，onFinish两个监听。
 

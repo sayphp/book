@@ -1,6 +1,6 @@
 # Zend解析参数宏
 
-##实例代码
+## 实例代码
 
 ```c
 //*实例代码取自ext/standard/string.c trim()
@@ -18,7 +18,7 @@ static zend_always_inline void php_do_trim(INTERNAL_FUNCTION_PARAMETERS, int mod
 }
 ```
 
-##代码解析
+## 代码解析
 
 ```c
 //ZEND_PARSE_PARAMETERS_START(1, 2)
@@ -153,9 +153,9 @@ do{
 }while(0);
 ```
 
-##问题解析
+## 问题解析
 
-###1. 变量前加(void)的用法
+### 1. 变量前加(void)的用法
 
 > 该用法告诉编译器，变量已经使用，不需要进行提示。通常情况下我们在进行编译的时候，根本无法体现出现这个用法的作用，这和编译器参数设定有关。 
 

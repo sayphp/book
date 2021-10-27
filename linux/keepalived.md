@@ -1,8 +1,8 @@
-#是什么
+# 是什么
 
 keepalived是集群管理中保证集群高可用的一个服务软件,期功能类似于heartbeat,用来防止单点故障.
 
-#工作原理
+# 工作原理
 
 keepalived是以VRRP协议为实现基础的,[VVRP][remark-vrrp]全称是Virtual Router Redundancy Protocol,即虚拟路由冗余协议.
 
@@ -10,7 +10,7 @@ keepalived是以VRRP协议为实现基础的,[VVRP][remark-vrrp]全称是Virtual
 
 keepalived主要有三个模块，分别是core、check和vrrp。core模块为keepalived的核心，负责主进程的启动、维护以及全局配置文件的加载和解析。check负责健康检查，包括常见的各种检查方式。vrrp模块是来实现VRRP协议的。
 
-#配置文件
+# 配置文件
 
 keepalived只有一个配置文件keepalived.conf,里面主要包括几个配置区域,分别是:
 

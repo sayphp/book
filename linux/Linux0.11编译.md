@@ -1,4 +1,4 @@
-##环境
+## 环境
 
 内核：Linux 3.19.0-26-generic
 
@@ -22,7 +22,7 @@ CentOS下
 	
 	sudo yum install dev86
 
-####衍生问题
+#### 衍生问题
 
 由于as86不支持/**/所需要把源代码中注释改为！ 
 
@@ -54,13 +54,18 @@ align 2 是汇编语言指示符，其含义是指存储边界对齐调整；
 	.align 2//2修改为4(2^2)
 	.align 3//3修改为8(2^3)
 
-###gcc: error: unrecognized command line option ‘-fcombine-regs’
-###gcc: error: unrecognized command line option ‘-mstring-insns’
+### gcc: error: unrecognized command line option ‘-fcombine-regs’
+
+
+
+### gcc: error: unrecognized command line option ‘-mstring-insns’
+
+
 
 终于，gcc报错了，查了一下，发现是因为现在的gcc不支持这两个参数造成的，果断删除这两个参数
 
-###In file included from init/main.c:8:0:
-	
+### In file included from init/main.c:8:0:
+
 	In file included from init/main.c:8:0:
 	include/unistd.h:207:1: warning: function return types not compatible due to ‘volatile’
 	 volatile void exit(int status);
@@ -77,7 +82,7 @@ align 2 是汇编语言指示符，其含义是指存储边界对齐调整；
 	In file included from init/main.c:8:0:
 	init/main.c:23:29: error: static declaration of ‘fork’ follows non-static declaration
 	 static inline _syscall0(int,fork)
-                             ^
+	                         ^
 	include/unistd.h:134:6: note: in definition of macro ‘_syscall0’
 	 type name(void) \
 		  ^
@@ -97,9 +102,9 @@ align 2 是汇编语言指示符，其含义是指存储边界对齐调整；
 
 编队这一大堆让人头晕的编译错误，是由于include/unistd.h 中声明了一次pause() sync() fork(), 而在main.c 中通过宏又定义了这三个函数，但定义时多了static 限定，与声明不同，所以出错。所以直接把unistd.h中的声明去掉。
 
-###warning: function return types not compatible due to 'volatile'
+### warning: function return types not compatible due to 'volatile'
 
 静态方法声明问题，需要修改init/main.c文件
 
+## 然后莫名其妙的发现，我的kernel编程linux0.11的了，然后一堆bug，好吧，未完待续
 
-##然后莫名其妙的发现，我的kernel编程linux0.11的了，然后一堆bug，好吧，未完待续
