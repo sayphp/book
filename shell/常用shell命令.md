@@ -2,7 +2,7 @@
 
 记录一些开发中比较常用的shell命令，不需要每次都百度。
 
-## 查询某个目录下，某个关键词所在的文件
+### 查询某个目录下，某个关键词所在的文件
 
 
 ```shell
@@ -10,13 +10,13 @@ find /var/www/php/ -name "*.php" | xargs grep "keyword"
 ```
 ​	
 
-## ubuntu下面查询某个软件的安装信息
+### ubuntu下面查询某个软件的安装信息
 
 ```shell
 dpkg -L [softname]
 ```
 
-## 获取某个命令运行的返回状态
+### 获取某个命令运行的返回状态
 
 ```shell
 #第一个命令正确的时候返回0
@@ -29,26 +29,26 @@ ffmpeg -version ; echo $?
 ffmpeg -version &>/dev/null ; echo $?
 ```
 
-## 查找并替换文本内容
+### 查找并替换文本内容
 
 ```shell
 sed -i "s/abc/def/g" demo.txt
 ```
 
-## 清空一个文件
+### 清空一个文件
 
 ```shell
 > demo.txt
 ```
 
-## 批量替换文件后缀
+### 批量替换文件后缀
 
 ```shell
 #将.conf后缀的文件名批量替换为.conf.bak
 rename .conf .conf.bak *.conf
 ```
 
-## 获取文件MD5
+### 获取文件MD5
 
 ```shell
 md5sum filename | cut -d ' ' -f1
@@ -58,5 +58,11 @@ md5sum filename | cut -d ' ' -f1
 
 ```shell
 for f in * ; do mv -- "$f" "PRE_$f" ; done
+```
+
+### 批量进程删除
+
+```shel
+ps aux | grep "php" | awk '{print $2}' | xargs kill -15
 ```
 
