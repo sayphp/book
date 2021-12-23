@@ -45,7 +45,7 @@ binlog-do-db=test
 
 #### master复制帐号开启
 
-```mysql
+```sql
 #1.创建从库复制（replication）帐号
 create user 'test'@'192.168.1.63' identified by '123456';
 #设置帐号、主机（IP）、密码
@@ -60,7 +60,7 @@ update mysql.user set host='192.168.1.%' where user = 'test';
 
 #### master检查
 
-```mysql
+```sql
 #1.binlog是否开启
 show variables like "%log_bin%";
 +---------------------------------+---------------------------------+
@@ -102,7 +102,7 @@ replicate-do-db=test
 
 #### slave建立链接
 
-```mysql
+```sql
 change master to master_host='192.168.1.62', master_user='test', master_password='123456', master_log_file='mysql-bin000001',master_log_pos=154;
 #注意file、pos的值取自master status
 start slave;

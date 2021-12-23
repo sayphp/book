@@ -8,13 +8,13 @@
 
 发行版本：Ubuntu 15.04
 
-##问题
+## 问题
 
-###make: as86：命令未找到
+## make: as86：命令未找到
 
 这个问题是as86汇编器未安装，所以我们需要安装一下就可以解决了
 
-Ubunt下
+Ubuntu下
 	
 	sudo apt-get install bin86
 
@@ -22,13 +22,13 @@ CentOS下
 	
 	sudo yum install dev86
 
-#### 衍生问题
+## 衍生问题
 
 由于as86不支持/**/所需要把源代码中注释改为！ 
 
 毕竟是老问题，对此我们也只能默默地解决掉他
 
-###make: gas：命令未找到
+## make: gas：命令未找到
 
 这次安装了一下binutils,结果发现已经安装过了工具，在查了下资料，发现时gas、gld的名称已经过时了，现在GNU assembler的名称是as
 
@@ -37,13 +37,13 @@ CentOS下
 	AS =gas//修改为as
 	LD =gld//修改为ld
 
-###Error: unsupported instruction
+## Error: unsupported instruction
 
 一大串的不支持错误提示，这是由于64位机器上编译的元婴，需要告诉编译器，我们要编译32位的code，修改Makefile吧
 	
 	AS = as --32//添加--32以按照32位编译
 
-### Error: alignment not a power of 2
+## Error: alignment not a power of 2
 
 align 2 是汇编语言指示符，其含义是指存储边界对齐调整；
 
@@ -54,17 +54,17 @@ align 2 是汇编语言指示符，其含义是指存储边界对齐调整；
 	.align 2//2修改为4(2^2)
 	.align 3//3修改为8(2^3)
 
-### gcc: error: unrecognized command line option ‘-fcombine-regs’
+## gcc: error: unrecognized command line option ‘-fcombine-regs’
 
 
 
-### gcc: error: unrecognized command line option ‘-mstring-insns’
+## gcc: error: unrecognized command line option ‘-mstring-insns’
 
 
 
 终于，gcc报错了，查了一下，发现是因为现在的gcc不支持这两个参数造成的，果断删除这两个参数
 
-### In file included from init/main.c:8:0:
+## In file included from init/main.c:8:0:
 
 	In file included from init/main.c:8:0:
 	include/unistd.h:207:1: warning: function return types not compatible due to ‘volatile’
@@ -102,7 +102,7 @@ align 2 是汇编语言指示符，其含义是指存储边界对齐调整；
 
 编队这一大堆让人头晕的编译错误，是由于include/unistd.h 中声明了一次pause() sync() fork(), 而在main.c 中通过宏又定义了这三个函数，但定义时多了static 限定，与声明不同，所以出错。所以直接把unistd.h中的声明去掉。
 
-### warning: function return types not compatible due to 'volatile'
+## warning: function return types not compatible due to 'volatile'
 
 静态方法声明问题，需要修改init/main.c文件
 

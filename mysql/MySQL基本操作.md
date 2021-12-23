@@ -1,6 +1,7 @@
 ### MySQL安装、卸载
 
 Ubuntu下
+
 ```shell
 sudo apt-get install mysql-server//安装
 sudo apt-get autoremove mysql-server//卸载
@@ -9,6 +10,7 @@ sudo apt-get autoremove mysql-server//卸载
 ### MySQL管理
 
 MacOS
+
 ```shell
 sudo /Library/StartupItems/MySQLCOM/MySQLCOM start//启动
 sudo /Library/StartupItems/MySQLCOM/MySQLCOM stop//停止
@@ -16,6 +18,7 @@ sudo /Library/StartupItems/MySQLCOM/MySQLCOM restart//重启
 ```
 
 Ubuntu
+
 ```shell
 //init.d方式
 sudo /etc/init.d/mysql start//启动
@@ -33,7 +36,7 @@ sudo service mysql restart//重启
 
 ### MySQL操作                                                                                             
 
-```mysql
+```sql
 mysql -u root -p//登录MySQL,提示输入Password
 status;//查看服务器状态
 show databases;//查询数据库列表

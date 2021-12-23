@@ -116,4 +116,3 @@ sudo docker logs adasd131huida12
 //进入容器
 sudo docker exec -it adasd131huida12 /bin/bash
 ```
-

@@ -20,27 +20,6 @@
 | deleting from main table       | 服务器正在执行多表删除的第一部分。它仅从第一个表中删除，并保存用于其他（引用）表中删除的列和偏移量 |
 | deleting from reference tables | 服务器正在执行多表删除的第二部分，并从其他表中删除匹配的行。 |
 | discard_or_import_tablespace   | 正在处理alter table ……discard tablespace或alter table ……import tablespace语句 |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
-|                                |                                                              |
 
 [1.]: https://dev.mysql.com/doc/refman/5.5/en/general-thread-states.html	"MySQL 5.5线程状态官方文档"
 

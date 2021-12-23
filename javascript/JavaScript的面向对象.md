@@ -1,6 +1,7 @@
-##类
+## 类
 
 函数即为类的定义的实现​
+
 ```javascript
 function MyClass(name,age){//废话少说，上代码
     this.name = name;
@@ -20,7 +21,7 @@ var cls1 = new MyClass("Say",25);
 cls1.toString();
 ```
 
-##静态类
+## 静态类
 
 无需实例化
 
@@ -34,9 +35,10 @@ StaticClass.Sum = function(val1,val2){
 alert(StaticClass.name);
 ```
 
-##继承
+## 继承
 
 神奇的apply函数
+
 ```javascript
 function PeopleClass(){this.type = "人";};//人类
 PeopleClass.prototype = {

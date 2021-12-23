@@ -45,4 +45,3 @@ git archive --format=tar --output /var/www/a.tar master//讲主干分支归档�
 ```
 
 其实吧，我觉得git中的文件复制粘贴到别的项目中，不会有什么影响，所以，可以直接在自己的git项目中cp非.git的所有目录和文件过去
-

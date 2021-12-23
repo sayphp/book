@@ -22,7 +22,6 @@
 PHP Warning:  swoole_server::task(): The method can only be used in the worker process.
 ```
 ​	
-
 造成这个错误的原因，就在于WorkerStart的回调方法中，没有区分是worker还是taskworker；而taskworker本身不能投递任务。
 
 翻了一下资料，在群友的帮助下，找到了swoole_server::$taskworker。通过返回值可以确定当前的worker到底是不是处理任务的。
